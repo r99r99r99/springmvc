@@ -1,0 +1,346 @@
+.map {
+    clear: both;
+    position: relative;
+    height: 88vh;
+    border: 0px solid black;
+    margin-left:-15px;
+    margin-right:-15px;
+}
+.littlemap {
+    clear: both;
+    position: relative;
+    height: 40vh;
+    width:100%;
+    border: 0px solid black;
+    margin-top:16px;
+    margin-left:5px;
+}
+#popup {
+    clear: both;
+    position: relative;
+    width: 200px;
+}
+        
+/*首页右侧实时数据样式开始*/
+#databox {
+	width: 345px;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+	font-size: 12px;
+	line-height: 1.5;
+	color: #565656;
+	word-wrap: break-word;
+	font-family: Arial, sans-serif;
+	/*gss8 background  height 把行内样式加入这了position z-index right display删除*/
+	/*height: 34px;*/
+	position: absolute;
+	background: #fff;
+	z-index: 666;
+	right: 10px;
+	top: 10px;
+}
+
+.hlx_sy_con_r {
+	width: 345px;
+	border-radius: 4px;
+	display: inline-block;
+	border: 1px solid #a2a5ac;
+}
+.hlx_sy_con_r_tit {
+	background: #325d79;
+	line-height: 40px;
+	color: #fff;
+}
+
+
+.hlx_sy_con_r_con {
+	padding: 9px;
+}
+
+.hlx_sy_con_r_con_1 {
+	width: 100%;
+}
+
+.hlx_sy_con_r_con_1_img {
+	width: 100%;
+	height: 87px;
+	overflow: hidden;
+}
+.hlx_sy_con_r_con_1 p {
+    color: rgb(255, 255, 255);
+    line-height: 22px;
+    font-size: 12px;
+    font-family: 微软雅黑;
+    padding-left: 10px;
+    background: rgb(42, 42, 43);
+    margin: 0px;
+}
+
+.hlx_sy_con_r_con_2 {
+	margin-top: 9px;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+.lastdata_in {
+	max-height: 35vh;
+	overflow-y: auto;
+}
+.hlx_sy_con_r_con_2_con {
+	margin-bottom: 9px;
+}
+.lastdata_in_con {
+	margin-bottom: -19px;
+}
+.hlx_sy_con_r_con_2_con_tit_left {
+	line-height: 28px;
+	font-size: 14px;
+	background: #f9f9f9;
+	border: 1px solid #cfcfcf;
+	border-bottom: none;
+	padding-left: 10px;
+	float: left;
+}
+.hlx_sy_con_r_con_2_con_tit_right {
+	line-height: 28px;
+	font-size: 14px;
+	background: #f9f9f9;
+	border: 1px solid #cfcfcf;
+	border-bottom: none;
+	padding-right: 10px;
+}
+.table_blue_zi {
+	color: #3283de;
+}
+
+.imp_clip{
+	position:absolute;
+	clip:rect(20px 10px 10px 10px); 
+}
+
+.hlx_sy_con_r_tit p {
+    padding-left: 10px;
+    font-size: 14px;
+    margin: 0;
+}
+/*首页右侧实时数据样式结束*/
+
+        #layersControl{  
+             /*  background-color: rgb(255,255,255);  
+              border:1px solid #888888;   */
+              position:absolute;  
+              z-index:555;  
+              left:8px;  
+              top:30px;  
+              display:none;  
+              width:150px;
+          }  
+          #stationLayers{  
+              position:absolute;  
+              z-index:555;  
+              right:10px;
+			  width:100%;
+			  height:250px;
+              bottom:5px;  
+              display:none;  
+          }  
+           #domainLayers{  
+          	  background-color: #f4f4f4;
+          	  opacity:0.90;
+          	  overflow :auto;
+			  filter:alpha(opacity=90);
+              border:1px solid #888888;  
+              position:absolute;  
+              z-index:555;   
+              left:0px;
+			  width:250px;
+			  height:60%;
+              top:0px; 
+              display:none;   
+          }  
+          #layersControlTitle{  
+              font:bold 12px sans-serif;  
+              background-color: #3bb5ff;  
+              color:#ffffff;  
+              height:30px;  
+              line-height: 30px;  
+          }  
+          #layercontent{  
+              height:250px;  
+              width:180px;  
+          }  
+          #layerbox{  
+              background: #fff;  
+              z-index: 112;  
+              width:150px;
+			  height:34px;
+              border-radius:3px 3px 3px 3px; 
+              box-shadow: 1px 2px 1px rgba(0,0,0,.15);  
+              font-size: 12px;  
+              line-height: 1.5;  
+              color: #565656;  
+              word-wrap: break-word;  
+              font-family: Arial,sans-serif;  
+          }  
+          #layerbox_item{  
+              font-size: 12px;  
+              line-height: 1.5;  
+              color: #565656;  
+              word-wrap: break-word;  
+          }  
+          #layerbox_item .item, #layerbox_item .item span,#measureTool .item span{  
+              display: inline-block;  
+              vertical-align: middle;  /*鍐呴儴鍥剧墖鐨勪綅缃�*/  
+          }  
+          #layerbox_item .item {  
+              height: 16px;  
+              padding: 0 6px;  
+              border-right: 1px #e5e5e5 solid;  
+              cursor: pointer;  
+          }  
+          #layerbox_item {  
+              padding: 7px 0 12px;  
+              background: #fff;  
+          }  
+          #layerbox_item .item .icon {          
+              width: 16px;  
+              height: 16px;  
+              margin-right: 5px;  
+          }  
+           #layerbox_item .layercontrol .icon {  
+               /* background-image: url('/Areas/GIS/Content/Images/layerscontrol.png');   */
+               background-repeat:no-repeat;  
+               background-size:16px;  
+          }  
+          .layersControl-closer {  
+              text-decoration: none;  
+              position: absolute;  
+              top: 2px;  
+              right: 8px;  
+              font:bold 12px sans-serif;  
+              line-height: 25px;  
+          }  
+          .layersControl-closer:after {  
+              content: "鉁�";  
+          }  
+            
+          .measureTool{  
+             position : absolute;  
+             display: none;  
+             top: 37px;  
+             right:100px;  
+             background-color: #fff;  
+             padding: 0 6px 8px;  
+             z-index: 999;  
+             box-shadow: 1px 1px 1px rgba(0,0,0,.15);  
+             -webkit-border-radius: 1px;  
+             -moz-border-radius: 1px;  
+             -o-border-radius: 1px;  
+             border-radius: 1px;  
+             border: 1px solid #ddd;  
+          }  
+          .measureTool .item{  
+              background-color: #fff;  
+              display: inline-block;  
+              border-right: 0;  
+              padding: 13px 0 4px;  
+              width: 46px;  
+              height: auto;  
+              text-align: center;  
+              float: left;  
+              color: #565656;   
+              cursor: pointer;  
+          }  
+          .measureTool .item .icon-c{  
+              width: 32px;  
+              height: 32px;  
+              -webkit-border-radius: 50%;  
+              -moz-border-radius: 50%;  
+              -ms-border-radius: 50%;  
+              border-radius: 50%;  
+              border: 1px solid #eaeaea;  
+              text-align: center;   
+         } 
+ .div-inline2{ 
+	width:50px;
+	display:inline;
+}         
+.mediastation{
+	width:40px;
+}
+.mediastationbody{
+	position:relative;
+	float:left;
+	width:200px;
+}
+.ui3-control-shadow{
+	position:relative;
+	float:left;
+	width:100%;
+	height:34px;
+	border-right: 1px solid #A9C9E2;
+	cursor:pointer;
+}
+.ui3-control-icon{
+	position:relative;
+	float:left;
+	height:20px;
+	margin-left:15px;
+	margin-top:7px;
+}
+.ui3-control-span{
+	position:relative;
+	float:left;
+	font-size:15px;
+	margin-top:7px;
+}
+.location1{
+	width:125px;
+	height:20px;
+	position:absolute;
+	top:8px;
+	left:170px;
+	color:#4E4E4E;
+	z-index:901;
+	font-size:18px;
+}
+.location2{
+width:125px;
+	height:20px;
+	position:absolute;
+	bottom:30px;
+	left:300px;
+	color:#333333;
+	z-index:901;
+}
+
+.main{
+	text-align:center;
+	margin:auto;
+}
+.firstBox {
+    clear: both;
+    position: relative;
+    height: 35vh;
+    width:100%;
+    border: 0px solid black;
+}
+.firstBoxIn {
+	height:100%;
+	overflow-y: auto;
+}
+.uicontrols{ 
+	left:30px;
+	display:block; 
+	float:left; 
+	min-height:30px; 
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+    position:relative;
+	float:left;
+	font-size:15px;
+	margin-top:7px;
+}
+.firstTableTd{
+	line-height: 10px !important;
+}

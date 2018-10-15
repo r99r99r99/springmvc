@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-autowire="byName">
+	
+	
+	<!-- 引入属性文件
+	<context:property-placeholder location="classpath:config.properties" />
+	 -->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>com.mysql.cj.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/pdocean?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Hongkong&amp;useSSL=false</value> 
+			<!-- <value>jdbc:mysql://localhost:3306/ytsocean?useUnicode=true&amp;characterEncoding=UTF-8</value>  -->
+			<!--<value>jdbc:mysql://127.0.0.1:3306/liaohe_oceantech</value>--> 
+		</property> 
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>Xu@518624</value>
+		</property>
+		<property name="initialSize" value="10"></property>
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="20"></property>
+		<property name="minIdle" value="5"></property>
+		<!-- 设置在自动回收超时连接的时候打印连接的超时错误 -->
+		<property name="logAbandoned" value="true" />
+		<!-- 设置自动回收超时连接 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- 自动回收超时时间(以秒数为单位) -->
+		<property name="removeAbandonedTimeout" value="100" />
+		<!-- 超时等待时间以毫秒为单位 -->
+		<property name="maxWait" value="3000" /> 
+		
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref  bean="dataSource" />
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+   
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+	
+	<context:component-scan base-package="com.sdocean.*.dao,com.sdocean.*.service" />
+	<!-- 支持上传文件 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="10485760000"></property>  
+        <property name="maxInMemorySize" value="40960"></property>  
+   </bean>  
+</beans>

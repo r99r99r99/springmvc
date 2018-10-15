@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul,a {
+	margin: 0;
+	padding: 0;
+	outline:none;
+	/*cursor:pointer*/
+}
+body {
+	font-family:"宋体";
+	color: #333;
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+　
+}
+table{   
+    border-collapse:collapse;   
+} 
+
+fieldset, img {
+	border: 0
+}
+ol, ul,li {
+	list-style: none;
+}
+img {
+	height: auto;
+}
+a {
+	text-decoration: none;
+}
+.fl {
+	float:left;
+}
+.fr {
+	float:right
+}
+.clear {
+	clear: both;
+}
+.cf:after {
+	content:"";
+	clear:both;
+	display:block;
+	height:0;
+	overflow:hidden
+}
+.cf {
+	zoom:1
+}
