@@ -8,17 +8,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.BeanUtils;
 
-import com.sdocean.frame.dao.OracleEngine;
 import com.sdocean.frame.exception.CopyPropertyException;
 
 
 public class ClassUtils {
 
-	private static Logger logger = Logger.getLogger(OracleEngine.class);  
+   private static Logger log = Logger.getLogger(ClassUtils.class);
 
     /**
      * 
@@ -60,7 +59,10 @@ public class ClassUtils {
         	e.printStackTrace();
             throw new CopyPropertyException("DW0008");
         } catch (IllegalAccessException e) {
-        	logger.error(e.getMessage());
+            log.error(e.getMessage());
+            throw new CopyPropertyException("DW0008");
+        } catch (InvocationTargetException e) {
+            log.error(e.getMessage());
             throw new CopyPropertyException("DW0008");
         }
     }

@@ -16,6 +16,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.sdocean.dataQuery.model.DataImportModel;
 
 /**
  * 包含操作 {@code JSON} 数据的常用方法的工具类。
@@ -28,7 +29,7 @@ import com.google.gson.reflect.TypeToken;
  * @version 1.1.0
  */
 public class JsonUtil {
-	private static Logger logger = Logger.getLogger(JsonUtil.class);  
+	private static final Logger LOGGER = Logger.getLogger(JsonUtil.class);
 
 	/** 空的 {@code JSON} 数据 - <code>"{}"</code>。 */
 	public static final String EMPTY_JSON = "{}";
@@ -319,7 +320,7 @@ public class JsonUtil {
 		try {
 			return gson.fromJson(json, token.getType());
 		} catch (Exception ex) {
-			logger.error(json + " 无法转换为 " + token.getRawType().getName() + " 对象!", ex);
+			LOGGER.error(json + " 无法转换为 " + token.getRawType().getName() + " 对象!", ex);
 			return null;
 		}
 	}
@@ -367,7 +368,7 @@ public class JsonUtil {
 		try {
 			return gson.fromJson(json, clazz);
 		} catch (Exception ex) {
-			logger.error(json + " 无法转换为 " + clazz.getName() + " 对象!", ex);
+			LOGGER.error(json + " 无法转换为 " + clazz.getName() + " 对象!", ex);
 			return null;
 		}
 	}
@@ -420,9 +421,8 @@ public class JsonUtil {
 			} else {
 				result = gson.toJson(target, targetType);
 			}
-			logger.info("Use Gson convert object to json:{}");
 		} catch (Exception ex) {
-			logger.warn("目标对象 " + target.getClass().getName() + " 转换 JSON 字符串时，发生异常！", ex);
+			LOGGER.warn("目标对象 " + target.getClass().getName() + " 转换 JSON 字符串时，发生异常！", ex);
 			if (target instanceof Collection<?> || target instanceof Iterator<?> || target instanceof Enumeration<?> || target.getClass().isArray()) {
 				result = EMPTY_JSON_ARRAY;
 			}
@@ -462,7 +462,7 @@ public class JsonUtil {
 	        }  
 			return lst;
 		} catch (Exception ex) {
-			logger.error(json + " 无法转换为 " + clazz.getName() + " 对象!", ex);
+			LOGGER.error(json + " 无法转换为 " + clazz.getName() + " 对象!", ex);
 			return null;
 		}
 	}

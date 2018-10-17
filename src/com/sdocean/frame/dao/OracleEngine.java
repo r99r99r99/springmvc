@@ -1,7 +1,6 @@
 package com.sdocean.frame.dao;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,14 +18,14 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.sdocean.frame.exception.CopyPropertyException;
 import com.sdocean.frame.util.ClassUtils;
 import com.sdocean.frame.util.Constants;
 
 public class OracleEngine {
 
-	private static Logger logger = Logger.getLogger(OracleEngine.class);  
-
+	private static Logger log = Logger.getLogger(OracleEngine.class);
 
 	protected JdbcTemplate jdbcTemplate;
 
@@ -37,7 +36,7 @@ public class OracleEngine {
 	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
-		logger.info("程序启动初始化spring jdbcTemplate");
+		log.info("程序启动初始化spring jdbcTemplate");
 	}
 
 	public static void main(String args[]) {
@@ -258,7 +257,7 @@ public class OracleEngine {
 
 	public int queryRowCount(String sql, Object[] parameters) {
 
-		logger.debug(sql);
+		log.debug(sql);
 		List<Map<String, Object>> result = this.jdbcTemplate.queryForList(
 				"Select Count(1) From (" + sql + ") cc", parameters);
 

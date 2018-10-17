@@ -27,6 +27,29 @@ public  class ConfigInfo {
 	@Value("#{configProperties['ifsystem']}")
 	private Boolean ifsystem;
 	
+	@Value("#{configProperties['stationPicPath']}")
+	private String stationPicPath;
+	
+	@Value("#{configProperties['filePath']}")
+	private String filePath;  //系统的文件附件所放的位置
+	
+	
+	public String getStationPicPath() {
+		return stationPicPath;
+	}
+
+	public void setStationPicPath(String stationPicPath) {
+		this.stationPicPath = stationPicPath;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
 	public Boolean getIfsystem() {
 		return ifsystem;
 	}
