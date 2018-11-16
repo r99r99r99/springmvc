@@ -25,6 +25,9 @@ public class SysLoginLogService {
 	@Autowired
 	SysLoginLogDao loginLogDao;
 	
+	public void deletesql() {
+		loginLogDao.deletesql();
+	}
 	
 	public void saveSysLoginLog(HttpServletRequest request, ConfigInfo info){
 		SysLoginLogModel model = new SysLoginLogModel();

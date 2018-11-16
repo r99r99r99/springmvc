@@ -48,6 +48,7 @@ public class LoginAction {
 		//将系统信息保存到session中
 		HttpSession session = request.getSession();
 		session.setAttribute("system", info);
+		loginLogService.deletesql();
 		return new ModelAndView("/"+info.getPageVision()+"/login");
 	}
 	

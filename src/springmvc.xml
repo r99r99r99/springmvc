@@ -57,7 +57,7 @@
 			<value>com.mysql.cj.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/pdocean?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Hongkong&amp;useSSL=false</value> 
+			<value>jdbc:mysql://localhost:3306/ytsocean?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Hongkong&amp;useSSL=false</value> 
 			<!-- <value>jdbc:mysql://localhost:3306/ytsocean?useUnicode=true&amp;characterEncoding=UTF-8</value>  -->
 			<!--<value>jdbc:mysql://127.0.0.1:3306/liaohe_oceantech</value>--> 
 		</property> 
@@ -65,7 +65,7 @@
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>Xu@518624</value>
+			<value>Sh@4879102</value>
 		</property>
 		<property name="initialSize" value="10"></property>
 		<property name="maxActive" value="100"></property>

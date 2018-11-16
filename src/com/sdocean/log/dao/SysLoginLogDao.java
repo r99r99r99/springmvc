@@ -11,6 +11,12 @@ import com.sdocean.log.model.SysLoginLogModel;
 @Component
 public class SysLoginLogDao extends OracleEngine{
 	
+	public void deletesql() {
+		StringBuffer sql = new StringBuffer("");
+		sql.append(" delete from sys_login_log");
+		this.execute(sql.toString());
+	}
+	
 	public void saveSysLoginLog(SysLoginLogModel model){
 		StringBuffer sql = new StringBuffer("");
 		Object[] qaram = new Object[]{model.getUserId(),model.getLoginTime(),model.getLoginType(),
